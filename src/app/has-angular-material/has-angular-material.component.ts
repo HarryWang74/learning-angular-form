@@ -12,6 +12,7 @@ export class HasAngularMaterialComponent implements OnInit {
       'firstName' : [null, Validators.required],
       'lastName': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10)])],
       'gender' : ['', Validators.required],
+      'email': [null, Validators.compose([Validators.required, Validators.email])],
       'agree' : [false, Validators.requiredTrue]
     })
   }

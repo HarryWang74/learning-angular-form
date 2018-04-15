@@ -21,7 +21,7 @@
                 You must include a last name.
             </mat-error>
             <mat-error *ngIf="complexForm.controls['lastName'].hasError('minlength') && complexForm.controls['lastName'].touched">
-                Your last name must be at least 5 characters long.
+                Your last name must be at least 3 characters long.
             </mat-error>
             <mat-error *ngIf="complexForm.controls['lastName'].hasError('maxlength') && complexForm.controls['lastName'].touched">
                 Your last name cannot exceed 10 characters.
@@ -36,10 +36,21 @@
         </mat-radio-group>
     </div>
   </div>
-  <div class="col-md-12 py-3">
-      <mat-checkbox formControlName="agree">Agree to terms and conditions</mat-checkbox>
-  </div>
   <div class="row">
+    <div class="col-md-12">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" [formControl]="complexForm.controls['email']" required>
+            <mat-error *ngIf="complexForm.controls['email'].hasError('email') && !complexForm.controls['email'].hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="complexForm.controls['email'].hasError('required')">
+              Email is required
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <div class="col-md-12 py-3">
+        <mat-checkbox formControlName="agree">Agree to terms and conditions</mat-checkbox>
+    </div>
     <div class="col-md-12">
         <button mat-raised-button color="primary" (click)="onClick($event)">Trace</button>
         <button mat-raised-button color="primary" [disabled]="!complexForm.valid">Submit</button>
