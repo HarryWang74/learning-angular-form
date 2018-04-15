@@ -8,7 +8,7 @@ import { ValidatePassword } from '../validator/password.validator';
   styleUrls: ['./no-angular-material.component.css']
 })
 export class NoAngularMaterialComponent implements OnInit {
-  reg: RegExp = new RegExp('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/');
+  hide = true;
   complexForm: FormGroup;
   constructor(fb: FormBuilder) {
     this.complexForm = fb.group({
@@ -16,7 +16,7 @@ export class NoAngularMaterialComponent implements OnInit {
       'lastName': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10)])],
       'gender' : [null, Validators.required],
       'email': [null, Validators.compose([Validators.required, Validators.email])],
-      // validate formcontrol by custom regular expression
+      // validate formcontrol by custom validator
       'password': [null, ValidatePassword],
       'agree' : [false, Validators.requiredTrue]
     })

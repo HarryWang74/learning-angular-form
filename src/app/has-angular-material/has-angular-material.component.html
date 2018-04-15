@@ -38,7 +38,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <input matInput placeholder="Email" [formControl]="complexForm.controls['email']" required>
             <mat-error *ngIf="complexForm.controls['email'].hasError('email') && !complexForm.controls['email'].hasError('required')">
               Please enter a valid email address
@@ -46,7 +46,19 @@
             <mat-error *ngIf="complexForm.controls['email'].hasError('required')">
               Email is required
             </mat-error>
-          </mat-form-field>
+        </mat-form-field>
+    </div>
+    <div class="col-md-12">
+        <mat-form-field>
+        <input matInput placeholder="Password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [formControl]="complexForm.controls['password']" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="complexForm.controls['password'].hasError('invalidatePassword') && !complexForm.controls['password'].hasError('required')">
+            Password must be 7-50 characters long and must contain at least 1 number, 1 upper character and 1 lower character.
+        </mat-error>
+        <mat-error *ngIf="complexForm.controls['password'].hasError('required')">
+            Password is required
+        </mat-error>
+        </mat-form-field>
     </div>
     <div class="col-md-12 py-3">
         <mat-checkbox formControlName="agree">Agree to terms and conditions</mat-checkbox>
