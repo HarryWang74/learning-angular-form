@@ -27,6 +27,29 @@
             <div *ngIf="complexForm.controls['lastName'].hasError('maxlength') && complexForm.controls['lastName'].touched" class="alert alert-danger">Your last name cannot exceed 10 characters.</div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="alert alert-danger" *ngIf="!complexForm.controls['gender'].valid && complexForm.controls['gender'].touched">You must select a gender.</div>
+            <div class="form-row">
+                <div class="form-check form-check-inline">
+                    <label label class="form-check-label" for="inlineRadio1">
+                        <input type="radio" name="gender" value="Male" id="inlineRadio1"
+                        [formControl]="complexForm.controls['gender']">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" for="inlineRadio2">
+                        <input type="radio" name="gender" value="Female" id="inlineRadio2"
+                        [formControl]="complexForm.controls['gender']">
+                        Female
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
   </div>
 
   <div class="row">

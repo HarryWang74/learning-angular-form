@@ -11,6 +11,7 @@ export class NoAngularMaterialComponent implements OnInit {
     this.complexForm = fb.group({
       'firstName' : [null, Validators.required],
       'lastName': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
+      'gender' : [null, Validators.required],
     })
   }
 
