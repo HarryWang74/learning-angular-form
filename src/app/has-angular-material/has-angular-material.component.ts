@@ -10,8 +10,9 @@ export class HasAngularMaterialComponent implements OnInit {
   constructor(fb: FormBuilder) {
     this.complexForm = fb.group({
       'firstName' : [null, Validators.required],
-      'lastName': [null, Validators.compose([Validators.required, Validators.minLength(5), Validators.maxLength(10)])],
+      'lastName': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(10)])],
       'gender' : ['', Validators.required],
+      'agree' : [false, Validators.requiredTrue]
     })
   }
 

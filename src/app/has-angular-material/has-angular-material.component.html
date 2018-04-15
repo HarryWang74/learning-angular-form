@@ -30,11 +30,14 @@
     </div>
     <div class="col-md-4">
         <div><mat-label >Gender</mat-label></div>
-        <mat-radio-group formControlName="gender">
+        <mat-radio-group formControlName="gender" required>
             <mat-radio-button value="Male">Male</mat-radio-button>
             <mat-radio-button value="Female">Female</mat-radio-button>
         </mat-radio-group>
     </div>
+  </div>
+  <div class="col-md-12 py-3">
+      <mat-checkbox formControlName="agree">Agree to terms and conditions</mat-checkbox>
   </div>
   <div class="row">
     <div class="col-md-12">
