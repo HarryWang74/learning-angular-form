@@ -10,9 +10,23 @@
         <mat-form-field>
             <input matInput placeholder="First name" [formControl]="complexForm.controls['firstName']" required>
             <mat-error *ngIf="complexForm.controls['firstName'].hasError('required') && complexForm.controls['firstName'].touched">
-              First name is <strong>required</strong>
+                You must include a first name.
             </mat-error>
           </mat-form-field>
+    </div>
+    <div class="col-md-4">
+        <mat-form-field>
+            <input matInput placeholder="Last name" [formControl]="complexForm.controls['lastName']" required>
+            <mat-error *ngIf="complexForm.controls['lastName'].hasError('required') && complexForm.controls['lastName'].touched">
+                You must include a last name.
+            </mat-error>
+            <mat-error *ngIf="complexForm.controls['lastName'].hasError('minlength') && complexForm.controls['lastName'].touched">
+                Your last name must be at least 5 characters long.
+            </mat-error>
+            <mat-error *ngIf="complexForm.controls['lastName'].hasError('maxlength') && complexForm.controls['lastName'].touched">
+                Your last name cannot exceed 10 characters.
+            </mat-error>
+        </mat-form-field>
     </div>
   </div>
   <div class="row">
