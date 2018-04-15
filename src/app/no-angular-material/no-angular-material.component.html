@@ -64,6 +64,17 @@
         </div>
     </div>
 
+    <!-- password -->
+    <div class="col-md-8">
+        <div class="form-group"
+        [ngClass]="{'has-error':!complexForm.controls['password'].valid && complexForm.controls['password'].touched}">
+            <label for="inputPassword">Password:</label>
+            <input type="password" class="form-control"
+              placeholder="Password" placeholder="email" [formControl]="complexForm.controls['password']">
+            <div *ngIf="complexForm.controls['password'].hasError('invalidatePassword') && complexForm.controls['password'].touched" class="alert alert-danger">Password must be 7-50 characters long and must contain at least 1 number, 1 upper character and 1 lower character.</div>
+        </div>
+    </div>
+
     <!-- t&c -->
     <div class="col-md-12 py-3">
         <div class="form-check">
