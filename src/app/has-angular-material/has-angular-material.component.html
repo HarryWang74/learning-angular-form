@@ -8,17 +8,17 @@
   <div class="row">
     <div class="col-md-4">
         <mat-form-field>
-            <input matInput placeholder="First name" placeholder="John" [formControl]="complexForm.controls['firstName']" required>
+            <input matInput placeholder="First name" [formControl]="complexForm.controls['firstName']" required>
             <mat-error *ngIf="complexForm.controls['firstName'].hasError('required') && complexForm.controls['firstName'].touched">
-              Email is <strong>required</strong>
+              First name is <strong>required</strong>
             </mat-error>
           </mat-form-field>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-        <button class="btn btn-primary" (click)="onClick($event)">Trace</button>
-        <button type="submit" class="btn btn-primary" [disabled]="!complexForm.valid">Submit</button>
+        <button mat-raised-button color="primary" (click)="onClick($event)">Trace</button>
+        <button mat-raised-button color="primary" [disabled]="!complexForm.valid">Submit</button>
     </div>
   </div>
 </form>
